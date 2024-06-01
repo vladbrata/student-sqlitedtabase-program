@@ -26,10 +26,9 @@ namespace student_sqlitedtabase_program
 
         private int GetSubjectId()
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             int id = 0;
 
-            Student student = null;
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {

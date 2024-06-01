@@ -10,9 +10,9 @@ namespace student_sqlitedtabase_program
 {
     internal class SQLiteAccess
     {
-        public static void AddClass(Clasa className)
+        /*public static void AddClass(Clasa className)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -30,7 +30,7 @@ namespace student_sqlitedtabase_program
         }
         public static void AddStudent(Student studentName)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -48,7 +48,7 @@ namespace student_sqlitedtabase_program
         }
         public static void AddSubject(Subject subject)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -66,7 +66,7 @@ namespace student_sqlitedtabase_program
         }
         public static void AddGrade(Grade grade)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -83,10 +83,10 @@ namespace student_sqlitedtabase_program
 
                 connection.Close();
             }
-        }
+        }*/
         public static List<Clasa> GetClasses()
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             List<Clasa> clases = new List<Clasa>();
             Clasa clasa = null;
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -121,8 +121,7 @@ namespace student_sqlitedtabase_program
         }
         public static void GetSubjects(Student studentName)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
-
+            string connectionString = "Data Source=database-students.db;Version=3;";
 
             Subject subject = null;
 
@@ -148,7 +147,7 @@ namespace student_sqlitedtabase_program
                                 StudentId = Convert.ToInt32(reader["StudentId"])
                             };
                             if (subject.StudentId == studentName.StudentId)
-                                studentName.SubjectList.Add(subject);
+                                studentName.ListOfSubjects.Add(subject.SubjectId, subject);
                         }
                     }
                 }
@@ -159,7 +158,7 @@ namespace student_sqlitedtabase_program
         }
         private static void GetGrades(Subject subjectName)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
 
 
             Grade grade = null;
@@ -207,7 +206,7 @@ namespace student_sqlitedtabase_program
         }
         public static void GetStudents(Clasa className)
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
 
 
             Student student = null;

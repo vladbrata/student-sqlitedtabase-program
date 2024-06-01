@@ -18,6 +18,7 @@ namespace student_sqlitedtabase_program
         public Clasa ClassName;
         public List<Grade> GradeList = new List<Grade>();
         public List<Subject> SubjectList = new List<Subject>();
+        public Dictionary<int, Subject> ListOfSubjects = new Dictionary<int, Subject>();
         public Student(string name, Clasa className)
         {
             this.Name = name;
@@ -30,10 +31,9 @@ namespace student_sqlitedtabase_program
 
         private int GetStudentId()
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             int id = 0;
 
-            Student student = null;
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {

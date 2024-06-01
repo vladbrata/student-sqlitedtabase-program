@@ -14,6 +14,7 @@ namespace student_sqlitedtabase_program
         public int NumberOfStudents;
         public static List<Clasa> ClassList = new List<Clasa>();
         public List<Student> StudentList = new List<Student>();
+        public Dictionary<int, Student> ListOfStudents = new Dictionary<int, Student>();
 
         public Clasa(string name)
         {
@@ -27,10 +28,9 @@ namespace student_sqlitedtabase_program
         }
         private int GetClassId()
         {
-            string connectionString = "Data Source=students-database.db;Version=3;";
+            string connectionString = "Data Source=database-students.db;Version=3;";
             int id = 0;
 
-            Student student = null;
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -57,10 +57,10 @@ namespace student_sqlitedtabase_program
             }
             return id;
         }
-        public static void PrintClasses(List<Clasa> classList)
+        /*public static void PrintClasses(List<Clasa> classList)
         {
 
             foreach (var clasa in classList) Console.WriteLine($"{clasa.Name} ({clasa.ClassId})");
-        }
+        }*/
     }
 }
